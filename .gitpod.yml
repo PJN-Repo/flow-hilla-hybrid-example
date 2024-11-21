@@ -1,7 +1,15 @@
-tasks:
-  - init: mvn install -Pproduction
+image: gitpod/workspace-full
 
-    command: mvn jetty:run
+tasks:
+  - init: ./mvnw clean install -Pproduction
+    command: ./mvnw spring-boot:run
+    name: Run PetClinic app
+
 ports:
   - port: 8080
     onOpen: open-preview
+
+vscode:
+  extensions:
+    - pivotal.vscode-spring-boot
+    - vscjava.vscode-java-pack
